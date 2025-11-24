@@ -65,3 +65,35 @@ for (let product of products){
 await page.close()
 
 })
+
+
+
+// Example 4
+
+test ("Locators4", async ({page})=>{
+
+await page.goto("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
+
+let headerImage= await page.getByAltText("company-branding")
+
+await expect(headerImage).toBeVisible()
+
+page.close()
+
+})
+
+// Example 5
+
+test ("Locators5", async ({page})=>{
+
+await page.goto("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
+
+await page.getByPlaceholder("Username").fill("Admin")
+
+await page.getByPlaceholder("Password").fill("admin123")
+
+await page.getByRole("button", {name: "Login"}).click()
+
+page.close()
+
+})
