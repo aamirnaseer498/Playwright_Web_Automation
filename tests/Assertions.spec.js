@@ -49,4 +49,25 @@ test("Hard Assertion", async ({page})=>{
     let genderContainer= await page.locator("#gender span")
     await expect(genderContainer).toHaveCount(2)
 
+    page.close()
+
+})
+
+test("Soft Assertion", async ({page})=>{
+
+    await page.goto("https://www.demoblaze.com/")
+
+    // Assertion 1
+
+    let url= await page.url()
+    await expect.soft(url).toHaveURL("https://www.blazemeter.com/")
+
+    let title= await page.title()
+    await expect.soft(title).toHaveTitle("Store 123")
+
+    let headerTitle= await page.locator("#nava")
+    await expect(headerTitle).toBeVisible()
+
+    await page.close()
+
 })
