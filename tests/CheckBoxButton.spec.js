@@ -1,5 +1,3 @@
-// npx playwright test CheckBoxButton.spec.js --project=chromium --headed
-
 const {test, expect}= require("@playwright/test")
 
 test("CheckBox Button", async ({page})=>{
