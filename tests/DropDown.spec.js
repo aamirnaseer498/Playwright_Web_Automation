@@ -117,3 +117,13 @@ test("Drop Down Assertion 3", async ({page})=>{
     await page.close()
 
 })
+
+test("Multi Select Drop Down",async ({page})=>{
+
+    await page.goto("https://testautomationpractice.blogspot.com/")
+
+    await page.selectOption("#colors",["Red", "Green", "Blue"])
+
+    await page.close()
+
+})
