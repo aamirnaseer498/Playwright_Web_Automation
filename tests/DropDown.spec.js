@@ -127,3 +127,28 @@ test("Multi Select Drop Down",async ({page})=>{
     await page.close()
 
 })
+
+test("BootStrap Drop Down",async ({page})=>{
+
+    await page.goto("https://preview.colorlib.com/theme/bootstrap/multiselect-01/")
+
+    await page.locator("button[title='None selected']").click()
+
+    const options= await page.$$("ul li label")
+
+    for(let option of options){
+        
+        const value= await option.textContent()
+
+        if(value.includes("Java") || value.includes("JavaScript")){
+
+        console.log(value)
+        await option.click()
+
+        }
+
+    }
+
+    await page.close()
+
+})
