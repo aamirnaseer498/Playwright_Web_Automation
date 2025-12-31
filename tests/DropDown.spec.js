@@ -152,3 +152,37 @@ test("BootStrap Drop Down",async ({page})=>{
     await page.close()
 
 })
+
+test("Auto Suggest Drop Down",async ({page})=>{
+
+    await page.goto("https://www.gsmarena.com/")
+
+    await page.waitForSelector("#clever-73756-1664299-top-scroll-topscroll-close")
+
+    await page.locator("#clever-73756-1664299-top-scroll-topscroll-close").click()
+
+    const searchField= await page.locator("#topsearch-text")
+
+    searchField.click()
+
+    searchField.fill("Ultra")
+
+    await page.waitForSelector("div[class='phone-results'] li")
+
+    const searchResults= await page.$$("div[class='phone-results'] li")
+
+    for(let result of searchResults){
+
+        const value= await result.textContent()
+        console.log(value)
+
+        if(value.includes("Galaxy S25 Ultra")){
+            await result.click()
+            break
+        }
+
+    }
+
+    await page.close()
+
+})
