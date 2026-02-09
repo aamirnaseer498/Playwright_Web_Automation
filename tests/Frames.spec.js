@@ -67,8 +67,6 @@ test("Nested Frames", async ({page})=>{
 
     await childFrames[0].locator("//*[@id='i9']/div[3]/div").check()
 
-    await page.waitForTimeout(3000)
-
     await page.close()
 
 })
