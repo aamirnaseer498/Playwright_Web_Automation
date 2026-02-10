@@ -48,6 +48,71 @@ test("Selecting multiple items from Table", async ({page})=>{
 
 })
 
+test("Getting all items from single page of Table", async ({page})=>{
+
+    await page.goto("https://testautomationpractice.blogspot.com/")
+
+    const tableRows= await page.locator("#productTable tbody tr")
+
+    for(let rowIndex=0; rowIndex<await tableRows.count(); rowIndex++){
+
+        const row= tableRows.nth(rowIndex)
+        const rowItems= row.locator("td")
+
+        for(let cellIndex=0; cellIndex<await rowItems.count()-1; cellIndex++){
+
+            console.log(await rowItems.nth(cellIndex).textContent())
+
+        }
+
+        console.log("")
+
+    }
+
+    await page.close()
+
+})
+
+test("Getting all items from all pages of Table", async ({page})=>{
+
+    await page.goto("https://testautomationpractice.blogspot.com/")
+
+    const tablePages= await page.locator("#pagination li a")
+    console.log("Total Pages of Table: " + await tablePages.count())
+
+    for(let tablePageIndex=0; tablePageIndex<await tablePages.count(); tablePageIndex++){
+
+        if(tablePageIndex>0){
+
+        await tablePages.nth(tablePageIndex).click()
+
+        }
+
+        await page.waitForTimeout(3000)
+
+        const tableRows= await page.locator("#productTable tbody tr")
+        
+        for(let rowIndex=0; rowIndex<await tableRows.count(); rowIndex++){
+            
+            const row= tableRows.nth(rowIndex)
+            const rowItems= row.locator("td")
+            
+            for(let cellIndex=0; cellIndex<await rowItems.count()-1; cellIndex++){
+                
+                console.log(await rowItems.nth(cellIndex).textContent())
+            
+            }
+
+            console.log("")
+    
+        }
+    
+    }
+
+    await page.close()
+
+})
+
 async function selectProduct(rows, productName){
 
     const matchedRow= await rows.filter({
@@ -59,5 +124,3 @@ async function selectProduct(rows, productName){
     await expect(matchedRow.locator("input")).toBeChecked()
 
 }
-
-// npx playwright test Tables.spec.js --project=chromium --headed
