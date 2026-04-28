@@ -1,14 +1,14 @@
 const {test, expect}= require("@playwright/test")
 
-// test("Manually Enter Date Value", async ({page})=>{
+test("Manually Enter Date Value", async ({page})=>{
 
-//     await page.goto("https://testautomationpractice.blogspot.com/")
+    await page.goto("https://testautomationpractice.blogspot.com/")
 
-//     await page.locator("#datepicker").fill("09/19/2026")
+    await page.locator("#datepicker").fill("09/19/2026")
 
-//     await page.waitForTimeout(5000)
+    await page.waitForTimeout(5000)
 
-// })
+})
 
 test("Select Date by Interacting Elements", async ({page})=>{
 
