@@ -16,3 +16,15 @@ test("Mouse Hover Action", async ({page})=>{
     await page.waitForTimeout(5000)
 
 })
+
+test("Mouse Right Click Action", async ({page})=>{
+
+    await page.goto("http://swisnl.github.io/jQuery-contextMenu/demo.html")
+
+    const mouseButton= await page.locator("//span[@class='context-menu-one btn btn-neutral']")
+
+    await mouseButton.click({button: "right"})
+
+    await page.waitForTimeout(5000)
+
+})
