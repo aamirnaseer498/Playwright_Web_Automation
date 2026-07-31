@@ -1,0 +1,18 @@
+<testsuites id="" name="" tests="2" failures="0" skipped="0" errors="0" time="9.743048">
+<testsuite name="Reporters.spec.js" timestamp="2026-07-31T15:11:45.019Z" hostname="chromium" tests="2" failures="0" skipped="0" time="8.679" errors="0">
+<testcase name="Test 1" classname="Reporters.spec.js" time="3.061">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\Reporters-Test-1-chromium\trace.zip]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Test 2" classname="Reporters.spec.js" time="5.618">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\Reporters-Test-2-chromium\trace.zip]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+</testsuites>
